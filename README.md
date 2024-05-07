@@ -1,2 +1,5 @@
-# ADA-MCTS
-Code repository for paper: "ACT AS YOU LEARN: ADAPTIVE DECISION-MAKING IN NON-STATIONARY MARKOV DECISION PROCESSES"
+This is a intermediate version of the code for the paper, a restructured version will be coming soon.
+
+python mcts_model.py
+
+ADA-MCTS would start running.
