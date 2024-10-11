@@ -99,7 +99,7 @@ class NSFrozenLakeV0(Env):
 
     metadata = {'render.modes': ['human', 'ansi']}
 
-    def __init__(self, desc=None, map_name="4x4", map_size=(5,5), is_slippery=True):
+    def __init__(self, desc=None, map_name="4x4", map_size=(5,5), is_slippery=True, intended_prob=0.4):
         if desc is None and map_name is None:
             raise ValueError('Must provide either desc or map_name')
         elif desc is None:
@@ -119,6 +119,7 @@ class NSFrozenLakeV0(Env):
         self.L_p = 2.0
         self.L_r = 0.0
         self.num_actions = 4
+        self.intended_prob = intended_prob
         self.T = self.generate_transition_matrix()
         isd = np.array(self.desc == b'S').astype('float64').ravel() # Initial state distribution
         self.isd = isd / isd.sum()
@@ -449,7 +450,7 @@ class NSFrozenLakeV0(Env):
     def generate_transition_matrix(self):
         T = np.zeros(shape=(self.nS, self.nA, self.nT, self.nS), dtype=float)
 
-        intended_prob = 0.4
+        intended_prob = self.intended_prob
 
         for s in range(self.nS):
             for a in range(self.nA):
