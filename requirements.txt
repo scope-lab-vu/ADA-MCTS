@@ -81,9 +81,6 @@ tensorboard-plugin-wit==1.8.1
 tensorflow==2.13.0
 tensorflow-estimator==2.13.0
 tensorflow-io-gcs-filesystem==0.33.0
-tensorrt==8.6.1
-tensorrt-bindings==8.6.1
-tensorrt-libs==8.6.1
 termcolor==2.3.0
 tf-slim==1.1.0
 torch==2.0.1

@@ -18,7 +18,7 @@ grid_beta = 0.1
 state_diffs = False
 
 # Load experience buffer
-with open(f'results/{domain}_exp_buffer', 'rb') as f:
+with open(f'data_buffer/{domain}_exp_buffer.pkl', 'rb') as f:
     exp_buffer = pickle.load(f)
 exp_buffer_np = np.vstack(exp_buffer)
 inst_indices = exp_buffer_np[:, 4].astype(int)

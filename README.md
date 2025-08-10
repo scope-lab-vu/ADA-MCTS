@@ -13,6 +13,13 @@ python3.8 -m venv ada_mcts_env
 source ada_mcts_env/bin/activate  
 pip install -r requirements.txt
 ```
+Or conda:
+```bash
+conda create -n adamcts -c conda-forge python=3.8
+conda activate adamcts
+pip install -r requirements.txt
+```
+
 ## Running the Algorithm
 Once the environment is set up, you can run the entire pipeline by executing the run.sh script. This script collects experiences, initializes the MDP0 model, and performs the Act As You Learn algorithm.
 To run the algorithm, use the following command:

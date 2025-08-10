@@ -50,7 +50,7 @@ class RLExperienceCollector:
         self.exp_buffer.extend(exp_list)
 
 
-    def save_experiences(self, filename='results/exp_buffer.pkl'):
+    def save_experiences(self, filename='data_buffer/exp_buffer.pkl'):
         with open(filename, 'wb') as f:
             pickle.dump(self.exp_buffer, f)
 

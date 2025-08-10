@@ -1,7 +1,7 @@
 #!/bin/bash
 # Collect experiences
-python data_collection/data_generation.py
+python -m data_collection.data_generation
 # Initialize MDP0
-python data_collection/train_model.py
+python -m data_collection.train_model
 # Perform Act As You Learn
 python act_learn.py
