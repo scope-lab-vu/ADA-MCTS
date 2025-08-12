@@ -54,7 +54,7 @@ def run_task(seed, domain, network_weights1, latent_weights1, bnn_hidden_layer_s
             exp_list = np.reshape(episode_buffer_bnn, [-1, 5])
             with open('data_buffer/{}_{}_exp_buffer'.format(domain, seed), 'wb') as f:
                 pickle.dump(exp_list, f)
-            train_model(seed, hipmdp1, full_task_weights2, 100, 100, 0)
+            train_model(seed, domain, hipmdp1, full_task_weights2, 100, 100, 0)
         task.render()
         time.sleep(0.1)
     return reward

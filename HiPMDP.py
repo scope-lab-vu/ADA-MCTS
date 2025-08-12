@@ -1,6 +1,7 @@
 from BNN.BayesianNeuralNetwork import *
 #from nsbridge_simulator.nsbridge_v0 import NSBridgeV0 as model
 from nsfrozenlake.nsfrozenlake_v0 import NSFrozenLakeV0 as model
+import pickle
 class HiPMDP(object):
     """
     The Hidden Parameters-MDP
@@ -99,7 +100,7 @@ class HiPMDP(object):
             self.network.weights = self.bnn_network_weights
 
 
-def train_model(seed, bnn2, weight_set2, best_net_work_error, best_latent_error, local_converge_count):
+def train_model(seed, domain, bnn2, weight_set2, best_net_work_error, best_latent_error, local_converge_count):
     with open('data_buffer/{}_{}_exp_buffer'.format(domain, seed), 'rb') as f:
         exp_buffer = pickle.load(f)
     instance_count = 1
@@ -120,7 +121,7 @@ def train_model(seed, bnn2, weight_set2, best_net_work_error, best_latent_error,
         chosen_tuple = random.choice(tuples_list)
         bnn_learning_rate, wb_learning_rate = chosen_tuple
     param_set = {
-        'bnn_layer_sizes': [num_dims + num_actions + num_wb] + [bnn_hidden_layer_size] * bnn_num_hidden_layers + [
+        'bnn_layer_sizes': [num_dims + num_actions + num_wb] + [bnn2.bnn_hidden_layer_size] * bnn2.bnn_num_hidden_layers + [
             num_dims * 2],
         'weight_count': num_wb,
         'num_state_dims': num_dims,
